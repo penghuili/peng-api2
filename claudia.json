@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "peng-api2-executor",
+    "name": "peng-api2",
+    "region": "eu-central-1"
+  },
+  "api": {
+    "id": "sknh2q2tmb",
+    "module": "src/api"
+  }
+}

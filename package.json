@@ -1,0 +1,38 @@
+{
+  "name": "peng-api2",
+  "version": "1.0.0",
+  "description": "peng api v2",
+  "author": "peng",
+  "license": "ISC",
+  "main": "./src/api.js",
+  "dependencies": {
+    "claudia-api-builder": "4.1.2",
+    "dotenv": "16.0.1",
+    "jsonwebtoken": "8.5.1",
+    "libsodium-wrappers": "0.7.10",
+    "node-2fa": "2.0.3",
+    "uuid": "8.3.2"
+  },
+  "optionalDependencies": {
+    "aws-sdk": "2.1166.0"
+  },
+  "devDependencies": {
+    "claudia": "5.14.1",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-hooks": "4.5.0",
+    "madge": "5.0.1",
+    "prettier": "2.6.2"
+  },
+  "scripts": {
+    "claudia": "claudia",
+    "create": "claudia create --region eu-central-1 --api-module src/api",
+    "deploy-test": "claudia update --version test --no-optional-dependencies",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
