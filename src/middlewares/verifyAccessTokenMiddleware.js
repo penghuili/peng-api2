@@ -4,7 +4,7 @@ const errorCodes = require('../lib/errorCodes');
 const parseRequest = require('../lib/parseRequest');
 const response = require('../lib/response');
 
-async function verifyJwtToken(request) {
+async function verifyAccessTokenMiddleware(request) {
   const { headers } = parseRequest(request);
 
   const { authorization, Authorization } = headers || {};
@@ -20,4 +20,4 @@ async function verifyJwtToken(request) {
   return decoded;
 }
 
-module.exports = verifyJwtToken;
+module.exports = verifyAccessTokenMiddleware;

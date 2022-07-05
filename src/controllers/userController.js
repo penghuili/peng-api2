@@ -5,7 +5,7 @@ const userClient = require('../clients/userClient');
 const errorCodes = require('../lib/errorCodes');
 const parseRequest = require('../lib/parseRequest');
 const response = require('../lib/response');
-const verifyJwtToken = require('../middlewares/verifyJwtToken');
+const verifyAccessTokenMiddleware = require('../middlewares/verifyAccessTokenMiddleware');
 
 const userController = {
   async signup(request) {
@@ -140,7 +140,7 @@ const userController = {
   },
 
   async getUser(request) {
-    const { user: userId } = await verifyJwtToken(request);
+    const { user: userId } = await verifyAccessTokenMiddleware(request);
 
     const { id, username, twoFactorSecret, createdAt, updatedAt } =
       await userClient.getByUserId(userId);
@@ -155,7 +155,7 @@ const userController = {
   },
 
   async deleteUser(request) {
-    const { user: userId } = await verifyJwtToken(request);
+    const { user: userId } = await verifyAccessTokenMiddleware(request);
 
     await userClient.deleteUser(userId);
 
